@@ -1,4 +1,7 @@
 # done-bar
+
+[![NPM](https://nodei.co/npm/done-bar.png?downloads=true)](https://www.npmjs.com/package/done-bar)
+
 A React Native component that dismisses any the keyboard.  Especially useful for the iOS numeric keyboard as there is no return or done button by default.
 
 ![](https://media.giphy.com/media/l0MYsBvyAwkfATeBG/giphy.gif)
@@ -16,7 +19,7 @@ A React Native component that dismisses any the keyboard.  Especially useful for
 3. make sure to have a local (or redux) state to pass to DoneBar that indicates the type of keyboard currently being displayed.  In order for DoneBar to display, the keyboardType prop passed to it must be numeric or blank (numeric by default)
 4. make sure your TextInputs set the proper keyboard type on their focus
 
-#### Examplelation
+### Examplelation
 ```javascript
 export default class Example extends React.Component {
   constructor(props) {
