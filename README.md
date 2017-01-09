@@ -3,6 +3,10 @@ A React Native component that dismisses any the keyboard.  Especially useful for
 
 ![](https://media.giphy.com/media/l0MYsBvyAwkfATeBG/giphy.gif)
 
+### Installation
+
+`import DoneBar from 'done-bar';`
+
 ### How to use
 1. make sure the DoneBar component is the last child in your wrapping root component
 2. make sure to have a local (or redux) state to pass to DoneBar that indicates the type of keyboard currently being displayed.  In order for DoneBar to display, the keyboardType prop passed to it must be numeric or blank (numeric by default)
