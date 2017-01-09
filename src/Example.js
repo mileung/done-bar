@@ -1,0 +1,60 @@
+console.disableYellowBox = true;
+
+import React from 'react';
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  TextInput
+} from 'react-native';
+
+import DoneBar from '../index.js';
+
+export default class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      keyboardType: 'default'
+    };
+  }
+  render() {
+    return (
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior="padding"
+        >
+        <TextInput
+          placeholder="Default Keyboard"
+          keyboardType="default"
+          onFocus={() => this.setState({ keyboardType: 'default' })}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Numeric Keyboard"
+          keyboardType="numeric"
+          onFocus={() => this.setState({ keyboardType: 'numeric' })}
+          style={styles.input}
+        />
+        <DoneBar
+          keyboardType={this.state.keyboardType}
+        />
+      </KeyboardAvoidingView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#F5FCFF'
+  },
+  input: {
+    color: '#333333',
+    margin: 5,
+    height: 50,
+    borderRadius: 5,
+    fontSize: 25,
+    textAlign: 'center',
+    backgroundColor: '#ccf0ff'
+  }
+});

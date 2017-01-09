@@ -1,0 +1,3 @@
+rootProject.name = 'done_bar'
+
+include ':app'
