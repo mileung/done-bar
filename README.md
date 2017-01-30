@@ -15,9 +15,9 @@ A React Native component that dismisses any the keyboard.  Especially useful for
 `import DoneBar from 'done-bar';`
 
 ### Usagation
-2. make sure the DoneBar component is the last child in your wrapping root component
-3. make sure to have a local (or redux) state to pass to DoneBar that indicates the type of keyboard currently being displayed.  In order for DoneBar to display, the keyboardType prop passed to it must be numeric or blank (numeric by default)
-4. make sure your TextInputs set the proper keyboard type on their focus
+1. make sure the parent of DoneBar extends all the way to the bottom of the screen.  Else DoneBar could possibly appear on the screen when the keyboard isn't visible.
+2. make sure to have a local (or redux) state to pass to DoneBar that indicates the type of keyboard currently being displayed.  In order for DoneBar to display, the keyboardType prop passed to it must be numeric or blank (numeric by default)
+3. make sure your TextInputs set their keyboard type in state on their focus
 
 ### Examplelation
 ```javascript
@@ -32,7 +32,7 @@ export default class Example extends React.Component {
     return (
       <KeyboardAvoidingView
         style={styles.container}
-        behavior="padding"
+        behavior="padding" // this is important; currently only works when behavior is padding
         >
         <TextInput
           keyboardType="default"
@@ -52,3 +52,6 @@ export default class Example extends React.Component {
   }
 }
 ```
+
+### Props
+keyboardType: String ('numeric' by default)

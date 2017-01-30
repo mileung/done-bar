@@ -36,6 +36,7 @@ export default class Example extends React.Component {
         />
         <DoneBar
           keyboardType={this.state.keyboardType}
+          viewBehavior="padding"
         />
       </KeyboardAvoidingView>
     );
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#000'
   },
   input: {
     color: '#333333',
