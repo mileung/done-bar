@@ -34,7 +34,7 @@
     "bar"
   ],
   "author": "Michael Leung",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MiLeung/done-bar/issues"
   },
