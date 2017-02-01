@@ -54,4 +54,8 @@ export default class Example extends React.Component {
 ```
 
 ### Props
-keyboardType: String ('numeric' by default)
+
+| prop                   | type    | default   |
+|------------------------|---------|-----------|
+| keyboardType           | string  | 'numeric' |
+| includeLayoutAnimation | boolean | true      |

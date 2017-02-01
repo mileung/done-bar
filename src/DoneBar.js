@@ -35,7 +35,7 @@ class DoneBar extends React.Component {
         return null;
       }
       let { height, width } = endCoordinates;
-      LayoutAnimation.configureNext(config);
+      this.props.includeLayoutAnimation ? LayoutAnimation.configureNext(config) : null;
       // this.props.fade ? this.changeOpacity(1) : null;
       this.setState({
         width,
@@ -46,7 +46,7 @@ class DoneBar extends React.Component {
       if (this.props.keyboardType !== 'numeric') {
         return null;
       }
-      LayoutAnimation.configureNext(config);
+      this.props.includeLayoutAnimation ? LayoutAnimation.configureNext(config) : null;
       // this.props.fade ? this.changeOpacity(0) : null;
       this.setState({
         width: endCoordinates.width,
@@ -93,12 +93,14 @@ class DoneBar extends React.Component {
 
 DoneBar.propTypes = {
   // viewBehavior: React.PropTypes.string,
-  keyboardType: React.PropTypes.string
+  keyboardType: React.PropTypes.string,
+  includeLayoutAnimation: React.PropTypes.bool
 };
 
 DoneBar.defaultProps = {
   // viewBehavior: 'padding',
-  keyboardType: 'numeric'
+  keyboardType: 'numeric',
+  includeLayoutAnimation: true
 };
 
 const styles = StyleSheet.create({
