@@ -34,10 +34,7 @@ export default class Example extends React.Component {
           onFocus={() => this.setState({ keyboardType: 'numeric' })}
           style={styles.input}
         />
-        <DoneBar
-          keyboardType={this.state.keyboardType}
-          viewBehavior="padding"
-        />
+        <DoneBar keyboardType={this.state.keyboardType} />
       </KeyboardAvoidingView>
     );
   }
@@ -47,7 +44,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#000'
+    backgroundColor: '#f0f8ff'
   },
   input: {
     color: '#333333',
