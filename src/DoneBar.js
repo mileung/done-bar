@@ -10,6 +10,7 @@ import {
   Dimensions,
   Platform
 } from 'react-native';
+import TextInputState from 'TextInputState';
 
 class DoneBar extends React.Component {
   constructor(props) {
@@ -20,6 +21,10 @@ class DoneBar extends React.Component {
       // opacity: new Animated.Value(0),
       bottom: -81
     };
+
+    if (!Keyboard.dismiss) {
+      Keyboard.dismiss = () => TextInputState.blurTextInput(TextInputState.currentlyFocusedField());
+    }
 
     this.duration = 250;
     const config = {
@@ -55,11 +60,6 @@ class DoneBar extends React.Component {
     });
   }
 
-  componentWillUnmount() {
-    this.keyboardWillShowListener.remove();
-    this.keyboardWillHideListener.remove();
-  }
-
   render() {
     if (Platform.OS !== 'ios' || this.props.keyboardType !== 'numeric') {
       console.log('returning null')
@@ -86,6 +86,11 @@ class DoneBar extends React.Component {
         <View style={styles.bar} />
       </Animated.View>
     );
+  }
+
+  componentWillUnmount() {
+    this.keyboardWillShowListener.remove();
+    this.keyboardWillHideListener.remove();
   }
 
   changeOpacity(toValue) {
