@@ -55,6 +55,11 @@ class DoneBar extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    this.keyboardWillShowListener.remove();
+    this.keyboardWillHideListener.remove();
+  }
+
   render() {
     if (Platform.OS !== 'ios' || this.props.keyboardType !== 'numeric') {
       console.log('returning null')
