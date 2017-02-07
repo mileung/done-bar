@@ -77,10 +77,9 @@ class DoneBar extends React.Component {
             style={styles.button}
             onPress={() => {
               Keyboard.dismiss();
-              this.setState({keyboardVisible: false});
             }}
             >
-            <Text style={styles.done}>Done</Text>
+            <Text style={styles.done}>{this.props.text}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.bar} />
@@ -104,13 +103,15 @@ class DoneBar extends React.Component {
 DoneBar.propTypes = {
   // viewBehavior: React.PropTypes.string,
   keyboardType: React.PropTypes.string,
-  includeLayoutAnimation: React.PropTypes.bool
+  includeLayoutAnimation: React.PropTypes.bool,
+  text: React.PropTypes.string,
 };
 
 DoneBar.defaultProps = {
   // viewBehavior: 'padding',
   keyboardType: 'numeric',
-  includeLayoutAnimation: true
+  includeLayoutAnimation: true,
+  text: 'Done',
 };
 
 const styles = StyleSheet.create({
