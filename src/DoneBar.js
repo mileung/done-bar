@@ -62,7 +62,6 @@ class DoneBar extends React.Component {
 
   render() {
     if (Platform.OS !== 'ios' || this.props.keyboardType !== 'numeric') {
-      console.log('returning null')
       return null;
     }
 
