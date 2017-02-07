@@ -10,7 +10,7 @@ import {
   Dimensions,
   Platform
 } from 'react-native';
-import TextInputState from 'TextInputState';
+import TextInputState from 'react-native/lib/TextInputState';
 
 class DoneBar extends React.Component {
   constructor(props) {
