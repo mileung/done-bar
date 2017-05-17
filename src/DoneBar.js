@@ -76,6 +76,7 @@ class DoneBar extends React.Component {
             style={styles.button}
             onPress={() => {
               Keyboard.dismiss();
+              this.props.onPress();
             }}
             >
             <Text style={styles.done}>{this.props.text}</Text>
@@ -104,6 +105,7 @@ DoneBar.propTypes = {
   keyboardType: React.PropTypes.string,
   includeLayoutAnimation: React.PropTypes.bool,
   text: React.PropTypes.string,
+  onPress: React.PropTypes.func,
 };
 
 DoneBar.defaultProps = {
@@ -111,6 +113,7 @@ DoneBar.defaultProps = {
   keyboardType: 'numeric',
   includeLayoutAnimation: true,
   text: 'Done',
+  onPress: () => {},
 };
 
 const styles = StyleSheet.create({
