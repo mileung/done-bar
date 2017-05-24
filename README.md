@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/done-bar.png?downloads=true)](https://www.npmjs.com/package/done-bar)
 
-A React Native component that dismisses any the keyboard.  Especially useful for the iOS numeric keyboard as there is no return or done button by default.  Works in both landscape and portrait orientations.
+A React Native component that dismisses the keyboard.  Especially useful for the iOS numeric keyboard as there is no return or done button by default.  Works in both landscape and portrait orientations.
 
 ![](https://media.giphy.com/media/l3q2Szw5f8tAqgOOY/giphy.gif)
 
