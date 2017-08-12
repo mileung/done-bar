@@ -6,56 +6,66 @@ A React Native component that dismisses the keyboard.  Especially useful for the
 
 ![](https://media.giphy.com/media/l3q2Szw5f8tAqgOOY/giphy.gif)
 
-### Installation
+### Install
 
 `npm install --save done-bar`
 
-### Importation
+### Import
 
 `import DoneBar from 'done-bar';`
 
-### Usagation
+### Usage
 1. make sure the parent of DoneBar extends all the way to the bottom of the screen.  Else DoneBar could possibly appear on the screen when the keyboard isn't visible.
 2. make sure to have a local (or redux) state to pass to DoneBar that indicates the type of keyboard currently being displayed.  In order for DoneBar to display, the keyboardType prop passed to it must be numeric or blank (numeric by default)
 3. make sure your TextInputs set their keyboard type in state on their focus
 
-### Examplelation
+### Example
 ```javascript
-export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      keyboardType: 'default' // this is important
-    };
-  }
-  render() {
-    return (
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior="padding" // this is important; currently only works when behavior is padding
-        >
-        <TextInput
-          keyboardType="default"
-          onFocus={() => this.setState({ keyboardType: 'default' })} // these are important
-          style={styles.input}
-        />
-        <TextInput
-          keyboardType="numeric"
-          onFocus={() => this.setState({ keyboardType: 'numeric' })} // these are important
-          style={styles.input}
-        />
-        <DoneBar
-          keyboardType={this.state.keyboardType} // this is important
-        />
-      </KeyboardAvoidingView>
-    );
-  }
+state = {
+  keyboardType: 'default'
+}
+
+render() {
+  return (
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior="padding"
+      >
+      <TextInput
+        placeholder="Default Keyboard"
+        keyboardType="default"
+        onFocus={() => this.setState({ keyboardType: 'default' })}
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="Numeric Keyboard"
+        keyboardType="numeric"
+        onFocus={() => this.setState({ keyboardType: 'numeric' })}
+        style={styles.input}
+      />
+      <DoneBar
+        keyboardType={this.state.keyboardType}
+        onDone={() => console.log('done!')}
+      />
+    </KeyboardAvoidingView>
+  );
 }
 ```
 
 ### Props
 
-| prop                   | type    | default   |
-|------------------------|---------|-----------|
-| keyboardType           | string  | 'numeric' |
-| includeLayoutAnimation | boolean | true      |
+```javascript
+static propTypes = {
+  keyboardType: PropTypes.string,
+  includeLayoutAnimation: PropTypes.bool, // set to false if you get a warning saying there are simultaneous LayoutAnimations
+  text: PropTypes.string,
+  onDone: PropTypes.func
+}
+
+static defaultProps = {
+  keyboardType: 'numeric',
+  includeLayoutAnimation: true,
+  text: 'Done',
+  onDone: () => {}
+}
+```

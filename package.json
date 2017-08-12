@@ -1,43 +1,24 @@
 {
-  "name": "done-bar",
-  "version": "1.0.3",
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
-  "peerDependencies": {
-    "react": ">=15.4.0",
-    "react-native": ">=0.40"
-  },
-  "devDependencies": {
-    "babel-jest": "18.0.0",
-    "babel-preset-react-native": "1.9.1",
-    "jest": "18.1.0",
-    "react-test-renderer": "15.4.2"
-  },
-  "jest": {
-    "preset": "react-native"
-  },
-  "description": "A React Native component to dismiss keyboards.  Especially useful for the iOS numeric keyboard.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MiLeung/done-bar.git"
-  },
-  "keywords": [
-    "done-bar",
-    "react",
-    "native",
-    "iOS",
-    "dismiss",
-    "keyboard",
-    "done",
-    "bar"
-  ],
-  "author": "Michael Leung",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/MiLeung/done-bar/issues"
-  },
-  "homepage": "https://github.com/MiLeung/done-bar#readme"
+	"name": "DoneBar",
+	"version": "1.0.4",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest",
+		"ios": "react-native run-ios",
+		"android": "react-native run-android"
+	},
+	"dependencies": {
+		"react": ">=16.0.0",
+		"react-native": ">=0.36.0"
+	},
+	"devDependencies": {
+		"babel-jest": "20.0.3",
+		"babel-preset-react-native": "2.1.0",
+		"jest": "20.0.4",
+		"react-test-renderer": "16.0.0-alpha.12"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
 }

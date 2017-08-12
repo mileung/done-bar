@@ -10,65 +10,66 @@ import {
   Dimensions,
   Platform
 } from 'react-native';
-import TextInputState from 'react-native/lib/TextInputState';
+import PropTypes from 'prop-types';
+
+let { width, height } = Dimensions.get('window');
 
 class DoneBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      height: 0,
-      width: Dimensions.get('window').width,
-      // opacity: new Animated.Value(0),
-      bottom: -81
-    };
+  static propTypes = {
+    keyboardType: PropTypes.string,
+    includeLayoutAnimation: PropTypes.bool,
+    text: PropTypes.string,
+    onDone: PropTypes.func
+  }
 
-    if (!Keyboard.dismiss) {
-      Keyboard.dismiss = () => TextInputState.blurTextInput(TextInputState.currentlyFocusedField());
-    }
+  static defaultProps = {
+    keyboardType: 'numeric',
+    includeLayoutAnimation: true,
+    text: 'Done',
+    onDone: () => {}
+  }
 
-    this.duration = 250;
+  state = {
+    height: 0,
+    width: width,
+    bottom: -81
+  }
+
+  componentWillMount(props) {
     const config = {
-      duration: this.duration,
+      duration: 250,
       update: {
-        duration: this.duration,
+        duration: 250,
         type: LayoutAnimation.Types.keyboard
       }
     };
 
-    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', ({ endCoordinates }) => {
-      if (this.props.keyboardType !== 'numeric') {
-        return null;
+    this.keyboardWillChangeFrameListener = Keyboard.addListener('keyboardWillChangeFrame', ({ endCoordinates }) => {
+      let { screenY } = endCoordinates;
+
+      if (screenY === height || this.props.keyboardType !== 'numeric') {
+        bottom = -81;
+      } else {
+        bottom = endCoordinates.height - 40;
       }
-      let { height, width } = endCoordinates;
+
       this.props.includeLayoutAnimation ? LayoutAnimation.configureNext(config) : null;
-      // this.props.fade ? this.changeOpacity(1) : null;
       this.setState({
-        width,
-        bottom: height - 40
-      });
-    });
-    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', ({ endCoordinates }) => {
-      if (this.props.keyboardType !== 'numeric') {
-        return null;
-      }
-      this.props.includeLayoutAnimation ? LayoutAnimation.configureNext(config) : null;
-      // this.props.fade ? this.changeOpacity(0) : null;
-      this.setState({
-        width: endCoordinates.width,
-        bottom: -81
+        bottom,
+        width: endCoordinates.width
       });
     });
   }
 
   render() {
-    if (Platform.OS !== 'ios' || this.props.keyboardType !== 'numeric') {
+    if (Platform.OS !== 'ios') {
       return null;
     }
 
-    let { bottom, width, opacity } = this.state;
+    let { bottom, width } = this.state;
 
     return (
-      <Animated.View style={[{ bottom, width, opacity }, styles.barWrapper]}>
+      <View style={[{ bottom, width }, styles.barWrapper]}>
         <View
           style={styles.bar}
           >
@@ -76,45 +77,21 @@ class DoneBar extends React.Component {
             style={styles.button}
             onPress={() => {
               Keyboard.dismiss();
-              this.props.onPress();
+              this.props.onDone();
             }}
             >
             <Text style={styles.done}>{this.props.text}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.bar} />
-      </Animated.View>
+      </View>
     );
   }
 
   componentWillUnmount() {
-    this.keyboardWillShowListener.remove();
-    this.keyboardWillHideListener.remove();
-  }
-
-  changeOpacity(toValue) {
-    Animated.timing(this.state.opacity, {
-      toValue,
-      duration: this.duration
-    }).start();
+    this.keyboardWillChangeFrameListener.remove();
   }
 }
-
-DoneBar.propTypes = {
-  // viewBehavior: React.PropTypes.string,
-  keyboardType: React.PropTypes.string,
-  includeLayoutAnimation: React.PropTypes.bool,
-  text: React.PropTypes.string,
-  onPress: React.PropTypes.func,
-};
-
-DoneBar.defaultProps = {
-  // viewBehavior: 'padding',
-  keyboardType: 'numeric',
-  includeLayoutAnimation: true,
-  text: 'Done',
-  onPress: () => {},
-};
 
 const styles = StyleSheet.create({
   barWrapper: {

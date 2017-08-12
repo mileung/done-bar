@@ -1,4 +1,4 @@
-package com.done-bar;
+package com.donebar;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "done-bar";
+        return "DoneBar";
     }
 }

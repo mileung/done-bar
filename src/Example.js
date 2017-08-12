@@ -10,12 +10,10 @@ import {
 import DoneBar from '../index.js';
 
 export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      keyboardType: 'default'
-    };
+  state = {
+    keyboardType: 'default'
   }
+
   render() {
     return (
       <KeyboardAvoidingView
@@ -34,7 +32,10 @@ export default class Example extends React.Component {
           onFocus={() => this.setState({ keyboardType: 'numeric' })}
           style={styles.input}
         />
-        <DoneBar keyboardType={this.state.keyboardType} />
+        <DoneBar
+          keyboardType={this.state.keyboardType}
+          onDone={() => console.log('done!')}
+        />
       </KeyboardAvoidingView>
     );
   }
