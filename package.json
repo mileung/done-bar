@@ -1,24 +1,45 @@
 {
-	"name": "DoneBar",
-	"version": "1.0.4",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest",
-		"ios": "react-native run-ios",
-		"android": "react-native run-android"
-	},
-	"dependencies": {
-		"react": ">=16.0.0",
-		"react-native": ">=0.36.0"
-	},
-	"devDependencies": {
-		"babel-jest": "20.0.3",
-		"babel-preset-react-native": "2.1.0",
-		"jest": "20.0.4",
-		"react-test-renderer": "16.0.0-alpha.12"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  "name": "done-bar",
+  "version": "1.0.4",
+  "private": false,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android"
+  },
+  "dependencies": {
+    "react": ">=16.0.0",
+    "react-native": ">=0.36.0"
+  },
+  "devDependencies": {
+    "babel-jest": "20.0.3",
+    "babel-preset-react-native": "2.1.0",
+    "jest": "20.0.4",
+    "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "description": "[![NPM](https://nodei.co/npm/done-bar.png?downloads=true)](https://www.npmjs.com/package/done-bar)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiLeung/done-bar.git"
+  },
+  "keywords": [
+    "done",
+    "bar",
+    "DoneBar",
+    "react",
+    "native",
+    "keyboard",
+    "dismiss"
+  ],
+  "author": "MiLeung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiLeung/done-bar/issues"
+  },
+  "homepage": "https://github.com/MiLeung/done-bar#readme"
 }
