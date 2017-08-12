@@ -4,7 +4,7 @@
 
 A React Native component that dismisses the keyboard.  Especially useful for the iOS numeric keyboard as there is no return or done button by default.  Works in both landscape and portrait orientations.
 
-![](https://media.giphy.com/media/l3q2Szw5f8tAqgOOY/giphy.gif)
+![](https://media.giphy.com/media/xT39DdG9kXnvxsEVPy/giphy.gif)
 
 ### Install
 
