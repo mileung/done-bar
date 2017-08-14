@@ -19,6 +19,7 @@ export default class Example extends React.Component {
       <KeyboardAvoidingView
         style={styles.container}
         behavior="padding"
+        keyboardVerticalOffset={this.state.keyboardType === 'numeric' ? 40 : 0}
         >
         <TextInput
           placeholder="Default Keyboard"
