@@ -1,6 +1,6 @@
 {
   "name": "done-bar",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": false,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -9,14 +9,14 @@
     "android": "react-native run-android"
   },
   "dependencies": {
-    "react": ">=16.0.0",
-    "react-native": ">=0.36.0"
+    "react": "^16.0.0",
+    "react-native": "^0.48.4"
   },
   "devDependencies": {
-    "babel-jest": "20.0.3",
-    "babel-preset-react-native": "2.1.0",
-    "jest": "20.0.4",
-    "react-test-renderer": "16.0.0-alpha.12"
+    "babel-jest": "^21.2.0",
+    "babel-preset-react-native": "^4.0.0",
+    "jest": "^21.2.0",
+    "react-test-renderer": "^16.0.0"
   },
   "jest": {
     "preset": "react-native"
