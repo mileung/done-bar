@@ -1,23 +1,10 @@
 {
   "name": "done-bar",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "ios": "react-native run-ios",
-    "android": "react-native run-android"
-  },
-  "dependencies": {
-    "react": "^16.0.0",
-    "react-native": "^0.48.4"
-  },
-  "devDependencies": {
-    "babel-jest": "^21.2.0",
-    "babel-preset-react-native": "^4.0.0",
-    "jest": "^21.2.0",
-    "react-test-renderer": "^16.0.0"
-  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
   "jest": {
     "preset": "react-native"
   },
@@ -37,7 +24,7 @@
     "dismiss"
   ],
   "author": "MiLeung",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MiLeung/done-bar/issues"
   },
