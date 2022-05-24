@@ -35,8 +35,7 @@ class DoneBar extends React.Component {
     bottom: -81
   }
 
-  componentWillMount(props) {
-    const config = {
+     config = {
       duration: 250,
       update: {
         duration: 250,
@@ -44,7 +43,7 @@ class DoneBar extends React.Component {
       }
     };
 
-    this.keyboardWillChangeFrameListener = Keyboard.addListener('keyboardWillChangeFrame', ({ endCoordinates }) => {
+    keyboardWillChangeFrameListener = Keyboard.addListener('keyboardWillChangeFrame', ({ endCoordinates }) => {
       let { screenY } = endCoordinates;
 
       if (screenY === height || this.props.keyboardType !== 'numeric') {
@@ -59,7 +58,6 @@ class DoneBar extends React.Component {
         width: endCoordinates.width
       });
     });
-  }
 
   render() {
     if (Platform.OS !== 'ios') {
